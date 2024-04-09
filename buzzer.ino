@@ -20,10 +20,6 @@ void setup() {
   printf("sizeof unsigned = %d", sizeof(unsigned));
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(LED_PIN, OUTPUT);
-  // digitalWrite(LED_PIN, 1);
-  // noTone(BUZZER_PIN);
-  // tone(BUZZER_PIN, 800, 1000); //Error beep
-  // delay(1000);
 
   // iterate over the notes of the melody:
   int size = sizeof(melodyFreq) / sizeof(float);
@@ -69,60 +65,3 @@ void loop() {
   printf("Loop %d\n", i++);
   delay(200);
 }
-
-
-// #define BUZZER_PIN 11 // The Arduino pin connected to the buzzer
-// #define LED_PIN 2
-
-// const PROGMEM float melodyFreq[] = {
-// 330,1,494,1,660,1,590,660,494,494,523,1,440,1,494,1,392,392,440,370,1,392,1,330,330,370,1,294,1,330,247,247,261,1,311,1,330,1,247,247,262,1,370,1,330,1,494,1,660,1,590,660,494,494,523,1,440,1,494,1,392,392,440,370,1,392,1,330,330,370,1,294,1,330,247,247,261,1,311,1,330,1,247,247,262,1,370,1,330
-// };
-
-// const PROGMEM unsigned melodyLengths[] = {
-// 150,40,159,40,150,40,150,150,100,100,150,40,150,40,150,40,100,100,150,150,40,150,40,100,100,150,40,150,40,150,100,100,150,40,150,40,150,40,100,100,150,40,150,40,150,40,159,40,150,40,150,150,100,100,150,40,150,40,150,40,100,100,150,150,40,150,40,100,100,150,40,150,40,150,100,100,150,40,150,40,150,40,100,100,150,40,150,40,150,40
-// };
-
-// void setup() {
-//   Serial.print("TEEEST");
-//   printf("Test\n");
-//   pinMode(LED_BUILTIN, OUTPUT);
-//   pinMode(LED_PIN, OUTPUT);
-
-//   // iterate over the notes of the melody:
-//   int size = sizeof(melodyFreq) / sizeof(float);
-//   int size2 = sizeof(melodyLengths) / sizeof(float);
-
-//   if(size != size2){
-//     printf("Problemo de lengths! %d %d\n", size, size2);
-//     tone(BUZZER_PIN, 500, 0); //Error beep
-//     while(1);
-//   }
-
-//   for (int thisNote = 0; thisNote < size; thisNote++) {
-
-//     // to calculate the note duration, take one second divided by the note type.
-//     //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-//     // int noteDuration = 1000 / noteDurations[thisNote];
-//     unsigned noteFreq = pgm_read_float_near(melodyFreq + thisNote);
-//     //(unsigned)melodyFreq[thisNote]
-
-//     // unsigned long noteLen = pgm_read_float_near(melodyLengths + thisNote);
-//     unsigned long noteLen = 100;
-//     tone(BUZZER_PIN, noteFreq, noteLen);
-
-//     digitalWrite(LED_PIN, noteFreq > 1000 ? 1 : 0);
-//     digitalWrite(LED_BUILTIN, noteFreq > 900 ? 1 : 0);
-
-//     // to distinguish the notes, set a minimum time between them.
-//     // the note's duration + 30% seems to work well:
-//     // int pauseBetweenNotes = 122 * 1.30;
-//     // delay(pauseBetweenNotes);
-//     delay(noteLen);
-//     // stop the tone playing:
-//     // noTone(BUZZER_PIN);
-//   }
-// }
-
-// void loop() {
-//   // no need to repeat the melody.
-// }
